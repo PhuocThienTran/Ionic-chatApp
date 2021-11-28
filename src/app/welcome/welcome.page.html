@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="end">
+      <ion-button color="danger" shape="square" routerLink="/home">        
+        Logout
+      </ion-button>
+    </ion-buttons>
+
+    <h6>chatApp</h6>
+
+    <ion-buttons slot="start">
+      <ion-button color="success" shape="square" routerLink="/friends">        
+        My Friends
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Current Group Chat</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Newest Message:
+
+      <ion-item>
+        <ion-label>
+          <h2>Finn</h2>
+          <h3>Finn@a.com</h3>
+          <p>Listen, I've had a pretty messed up day...</p>
+        </ion-label>
+      </ion-item>
+      <ion-button expand="full" color="success" shape="square" routerLink="/conversation">        
+        Resume Messaging
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>People You Might Know</ion-card-title>
+    </ion-card-header>
+
+    <ion-item>
+      <ion-label>Paul</ion-label>
+      <ion-button fill="outline" slot="end">Add Friend</ion-button>
+    </ion-item>
+  
+    <ion-card-content>
+      Paul@a.com
+    </ion-card-content>
+
+    <ion-item>
+      <ion-label>Ishini</ion-label>
+      <ion-button fill="outline" slot="end">Add Friend</ion-button>
+    </ion-item>
+  
+    <ion-card-content>
+      Ishini@a.com
+    </ion-card-content>
+
+
+  </ion-card>
+  
+
+
+</ion-content>

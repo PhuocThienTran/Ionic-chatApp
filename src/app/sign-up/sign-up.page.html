@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start"><ion-back-button></ion-back-button></ion-buttons>
+    <ion-title>Sign Up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content>
+    <br>
+    <ion-item lines="full">
+      <ion-label position="floating">Full Name</ion-label>
+      <ion-input type="text" clearInput></ion-input>
+    </ion-item>
+    <br>
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" clearInput></ion-input>
+    </ion-item>
+    <br>
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" clearInput></ion-input>
+    </ion-item>
+    <br>
+    <ion-item lines="full">
+      <ion-label position="floating">Birth Date</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" min="1990-01-01" max="2021-12-31"></ion-datetime>
+    </ion-item>
+    <br>
+    <ion-item lines="none">
+      <ion-checkbox slot="start" [(ngModel)]="tcs" ></ion-checkbox>
+      <ion-label>I've read the T&Cs</ion-label>
+    </ion-item>
+  
+    <br><br>
+    
+    <!-- CATCH: if user doesn't fill out username, password, and check T&Cs, signedUp doesn't get passed-->
+    <ion-button *ngIf="UserName !=' ' && Password != ' ' && tcs != checked"
+      color="success" expand="full" routerLink="/welcome">Sign Up</ion-button>
+
+</ion-content>
