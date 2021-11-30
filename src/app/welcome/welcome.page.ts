@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomePage implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
+
+  }
+
+  logoutNavigate(){
+    this.router.navigate(['home']);
+  }
+
+  myFriendsNavigate(){
+    this.router.navigate(['friends']);
+  }
+
+  conversationNavigate(){
+    this.router.navigate(['conversation']);
   }
 
 }

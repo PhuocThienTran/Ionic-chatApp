@@ -2,7 +2,7 @@
   <ion-toolbar>
 
     <ion-buttons slot="end">
-      <ion-button color="danger" shape="square" routerLink="/home">        
+      <ion-button color="danger" shape="square" (click)="logoutNavigate()">        
         Logout
       </ion-button>
     </ion-buttons>
@@ -10,7 +10,7 @@
     <h6>chatApp</h6>
 
     <ion-buttons slot="start">
-      <ion-button color="success" shape="square" routerLink="/friends">        
+      <ion-button color="success" shape="square" (click)="myFriendsNavigate()">        
         My Friends
       </ion-button>
     </ion-buttons>
@@ -34,7 +34,7 @@
           <p>Listen, I've had a pretty messed up day...</p>
         </ion-label>
       </ion-item>
-      <ion-button expand="full" color="success" shape="square" routerLink="/conversation">        
+      <ion-button expand="full" color="success" shape="square" (click)="conversationNavigate()">        
         Resume Messaging
       </ion-button>
     </ion-card-content>

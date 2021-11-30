@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-conversation',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConversationPage implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
+
+  }
+
+  messageNavigate(){
+    this.router.navigate(['conversation']);
   }
 
 }

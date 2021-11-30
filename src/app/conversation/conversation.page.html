@@ -27,30 +27,40 @@
       </ion-label>
     </ion-item>
 
-    <br><br>
-    
     <ion-item>
-      <ion-label>Message:</ion-label>
-      <ion-textarea clearOnEdit="true"></ion-textarea>
+      <ion-label>
+        <h2>Temp</h2>
+        <h3>Temp@a.com</h3>
+        <p>{{message}}</p>
+      </ion-label>
     </ion-item>
 
-    <ion-row>
-      <ion-col>
-        <ion-item lines="none">
-          <ion-button size="medium" shape="square">        
-            File
-          </ion-button>
-        </ion-item>
-      </ion-col>
-  
-      <ion-col>
-        <ion-item lines="none">
-          <ion-button size="medium" color="success" shape="square">        
-            Send
-          </ion-button>
-        </ion-item>
-      </ion-col>
-    </ion-row>
+    <br><br>
+
+    <form (ngSubmit)="messageNavigate()">
+      <ion-item>
+        <ion-label>Message:</ion-label>
+        <ion-textarea clearOnEdit="true" [(ngModel)]="message" name="message"></ion-textarea>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-button size="medium" shape="square">        
+              File
+            </ion-button>
+          </ion-item>
+        </ion-col>
+    
+        <ion-col>
+          <ion-item lines="none">
+            <ion-button size="medium" color="success" shape="square" type="submit">        
+              Send
+            </ion-button>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </form>
 
   </ion-list>
 

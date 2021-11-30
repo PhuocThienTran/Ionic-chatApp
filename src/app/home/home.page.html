@@ -36,7 +36,7 @@
   <ion-row>
     <ion-col>
       <ion-item lines="none">
-        <ion-button size="medium" color="success" shape="square" routerLink="/welcome">        
+        <ion-button size="medium" color="success" shape="square" (click)="loginNavigate()">        
           Log In
         </ion-button>
       </ion-item>
@@ -44,7 +44,7 @@
 
     <ion-col>
       <ion-item lines="none">
-        <ion-button size="medium" shape="square" routerLink="/sign-up">        
+        <ion-button size="medium" shape="square" (click)="signUpNavigate()">        
           Sign Up
         </ion-button>
       </ion-item>
