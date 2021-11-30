@@ -6,8 +6,7 @@ build top quality native and progressive web apps with web technologies.
 Ionic Framework is based on [Web Components](https://www.webcomponents.org/introduction) and comes with many significant performance, usability, and feature improvements over the past versions.
 
 ## About this project
-This is a personal fullstack Ionic, Angular, TypeScript, node.js, Ionic Storage project named chatApp. chatApp is highly secured, with user authentication to prevent spam or bots. It's designed to allow users to text everyone in a group chat and send images between each other. There are no plans to commercially deploy the project. Also, I'm currently swamped with so many projects, this project might be kept this way for now. However, should it get improved, the first thing would be to have 1-1 chat options between users.
-
+This is a personal fullstack Ionic, Angular, TypeScript, node.js, Ionic Storage project named chatApp. chatApp is highly secured, with user authentication to prevent spam or bots. It's designed to allow users to text everyone in a group chat and send images between each other. Currently working on it.
 ## Looking for the Ionic Framework v6 beta?
 
 [Click here to get started!](https://github.com/ionic-team/ionic-framework/blob/next/BETA.md)
