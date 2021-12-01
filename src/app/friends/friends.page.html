@@ -6,12 +6,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item-sliding>
+  <ion-searchbar #search debounce="500" (ionChange)="_ionChange($event)" (ionCancel)="_alert()" showCancelButton="always" cancelButtonText="Cancel" showClearButton="never" placeholder="Tutor First Name:"></ion-searchbar> 
+  <ion-list *ngIf="showSearch">
+    <ion-item-sliding *ngFor="let user of usersFiltered; let i = index">
       <ion-item>
         <ion-label>
-          <h2>Finn</h2>
-          <h3>Finn@a.com</h3>
+          <h2>{{user.name}}</h2>
+          <h3>{{user.contact}}</h3>
         </ion-label>
       </ion-item>
 
@@ -20,18 +21,6 @@
       </ion-item-options>
     </ion-item-sliding>
 
-    <ion-item-sliding>
-      <ion-item>
-        <ion-label>
-          <h2>Ishini</h2>
-          <h3>Ishini@a.com</h3>
-        </ion-label>
-      </ion-item>
-
-      <ion-item-options side="end">
-        <ion-item-option color="danger">Remove Friend</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
   </ion-list>
 
 </ion-content>

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {Router} from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
+import { ChatAppService } from '../services/chat-app.service'
+
 
 @Component({
   selector: 'app-welcome',
@@ -8,9 +11,12 @@ import {Router} from '@angular/router';
 })
 export class WelcomePage implements OnInit {
 
-  constructor(private router:Router) { }
+  fullName: string;
 
-  ngOnInit() {
+  constructor(private router:Router, private storage: Storage, private chatAppService: ChatAppService) { }
+
+  async ngOnInit() {
+    this.storage.get("fullName").then(val => {this.fullName = val})
 
   }
 

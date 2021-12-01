@@ -16,6 +16,6 @@ export class HomePage {
   }
 
   signUpNavigate(){
-    this.router.navigate(['sign-up']);
+    this.router.navigateByUrl("sign-up")
   }
 }
