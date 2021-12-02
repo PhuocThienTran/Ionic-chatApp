@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatAppService } from '../services/chat-app.service';
+import { Storage } from '@ionic/storage-angular';
 import {Router} from '@angular/router';
 
 @Component({
@@ -7,10 +9,16 @@ import {Router} from '@angular/router';
   styleUrls: ['./conversation.page.scss'],
 })
 export class ConversationPage implements OnInit {
+  name: string;
+  contact: string;
 
-  constructor(private router:Router) { }
+  users = []
+  conversations = []
 
-  ngOnInit() {
+  constructor(private router:Router, private chatAppService: ChatAppService, private storage: Storage) { }
+
+  async ngOnInit() {
+    this.conversations = JSON.parse(await this.chatAppService.retrieveConversations());
 
   }
 

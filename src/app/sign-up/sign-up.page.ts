@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
-import { ChatAppService } from '../services/chat-app.service'
+import { ChatAppService } from '../services/chat-app.service';
+
 
 @Component({
   selector: 'app-sign-up',
@@ -41,5 +42,6 @@ export class SignUpPage implements OnInit {
   updatedob(){
     this.chatAppService.updatedob(this.dob);
   }
+
 
 }
