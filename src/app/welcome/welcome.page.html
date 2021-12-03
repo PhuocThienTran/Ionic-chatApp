@@ -2,9 +2,6 @@
   <ion-toolbar>
     <ion-buttons slot="start"><ion-back-button></ion-back-button></ion-buttons>
     <ion-title>ChatApp! </ion-title>
-    <ion-button slot="end" size="small" shape="square" (click)="signUpNavigate()">        
-      +
-    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -13,15 +10,14 @@
     <ion-card-header>
       <ion-card-title>Current Group Chat</ion-card-title>
     </ion-card-header>
-  
-    <ion-card-content>
-      Newest Message:
 
-      <ion-item>
+    <ion-card-content>
+      Newest Message From:
+
+      <ion-item *ngFor="let conversation of latestValues; let i = index" lines="none">
         <ion-label>
-          <h2>Finn</h2>
-          <h3>Finn@a.com</h3>
-          <p>Listen, I've had a pretty messed up day...</p>
+          <h2>{{conversation.name}}</h2>
+          <h3>{{conversation.contact}}</h3>
         </ion-label>
       </ion-item>
     </ion-card-content>

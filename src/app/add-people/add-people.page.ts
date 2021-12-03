@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavParams, ModalController } from '@ionic/angular';
+import { NavParams, ModalController, AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -11,7 +11,7 @@ export class AddPeoplePage implements OnInit {
   name: string;
   contact: string;
 
-  constructor(private navParams: NavParams, private modalController: ModalController) { }
+  constructor(private navParams: NavParams, private modalController: ModalController, private alertController: AlertController) { }
 
   ngOnInit() {
     this.name = this.navParams.get("name");
@@ -20,6 +20,22 @@ export class AddPeoplePage implements OnInit {
 
   closemodal(){
     this.modalController.dismiss({name:this.name,contact:this.contact});
+  }
+
+  presentAlert():Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      const ctl = this.alertController;
+      let alert:any = this.alertController.create({
+        message: 'This will send an invitation to the added person\'s nominated email. Refresh to see person being added.',
+        buttons: [{
+          text: 'I understand',
+          handler: () => {
+            ctl.dismiss().then(() => { this.modalController.dismiss({name:this.name,contact:this.contact}); });
+            return false;
+          }
+        }]
+      }).then((dlg) => dlg.present());
+    });
   }
 
 }
