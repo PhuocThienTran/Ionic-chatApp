@@ -19,7 +19,7 @@ export class ConversationPage implements OnInit {
 
   async ngOnInit() {
     this.conversations = JSON.parse(await this.chatAppService.retrieveConversations());
-
+    console.log(this.conversations[2])
   }
 
   messageNavigate(){

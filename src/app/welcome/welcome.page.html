@@ -1,22 +1,12 @@
 <ion-header>
   <ion-toolbar>
-
-    <ion-buttons slot="end">
-      <ion-button color="danger" shape="square" (click)="logoutNavigate()">        
-        Logout
-      </ion-button>
-    </ion-buttons>
-
-    <h2>chatApp</h2>
-
+    <ion-buttons slot="start"><ion-back-button></ion-back-button></ion-buttons>
+    <ion-title>ChatApp! </ion-title>
+    <ion-button slot="end" size="small" shape="square" (click)="signUpNavigate()">        
+      +
+    </ion-button>
   </ion-toolbar>
 </ion-header>
-
-<ion-row>
-  <ion-col class="ion-padding-start">
-    <h4>Welcome {{fullName}}!</h4> <!--UserName from storage-->
-  </ion-col>
-</ion-row>
 
 <ion-content>
   <ion-card>

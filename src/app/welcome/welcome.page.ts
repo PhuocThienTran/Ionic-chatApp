@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {Router} from '@angular/router';
-import { Storage } from '@ionic/storage-angular';
 import { ChatAppService } from '../services/chat-app.service'
-
 
 @Component({
   selector: 'app-welcome',
@@ -11,17 +9,12 @@ import { ChatAppService } from '../services/chat-app.service'
 })
 export class WelcomePage implements OnInit {
 
-  fullName: string;
+  users = []
 
-  constructor(private router:Router, private storage: Storage, private chatAppService: ChatAppService) { }
+  constructor(private router:Router, private chatAppService: ChatAppService) { }
 
   async ngOnInit() {
-    this.storage.get("fullName").then(val => {this.fullName = val})
-
-  }
-
-  logoutNavigate(){
-    this.router.navigate(['home']);
+    this.users = JSON.parse( await this.chatAppService.retrieveUsers());
   }
 
   myFriendsNavigate(){

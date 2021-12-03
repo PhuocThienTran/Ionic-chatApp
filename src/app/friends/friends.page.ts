@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChatAppService } from '../services/chat-app.service';
-import { ModalController } from '@ionic/angular'
+import { ModalController } from '@ionic/angular';
+import { AddPeoplePage } from '../add-people/add-people.page';
 
 @Component({
   selector: 'app-friends',
@@ -22,7 +23,32 @@ export class FriendsPage implements OnInit {
   async ngOnInit() {
     this.users = JSON.parse( await this.chatAppService.retrieveUsers());
     this.usersFiltered = this.users
-    console.log(this.users)
+  }
+
+  async signUpNavigate(){
+    const modal = await this.modalController.create({
+      component: AddPeoplePage,
+      componentProps: {title: 'Add' }
+    });
+   
+    modal.onDidDismiss()
+      .then((retval) => {
+        if (retval.data.name !== undefined){
+          this.userSignUp(retval.data); // MARK: Push new tutor into current list
+        }
+   });
+     return modal.present();
+    
+  }
+  // MARK: Update storage after adding new tutor
+  userSignUp(val) {
+    this.users.push(val);
+    this.chatAppService.createUsers(this.users)
+  }   
+
+  // MARK: After leaving favourited-tutors, save any changes onto storage
+  ionViewDidLeave(){
+    this.chatAppService.createUsers(this.users);
   }
 
    // MARK: Search through list of tutors from storage
