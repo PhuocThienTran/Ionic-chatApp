@@ -23,7 +23,7 @@ export class AddPeoplePage implements OnInit {
   }
 
   presentAlert():Promise<boolean> {
-    return new Promise((resolve, reject) => {
+    return new Promise(() => {
       const ctl = this.alertController;
       let alert:any = this.alertController.create({
         message: 'This will send an invitation to the added person\'s nominated email. Refresh to see person being added.',

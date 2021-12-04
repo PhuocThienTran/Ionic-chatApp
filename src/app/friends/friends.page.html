@@ -9,7 +9,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar #search debounce="500" (ionChange)="_ionChange($event)" (ionCancel)="_alert()" showCancelButton="always" cancelButtonText="Cancel" showClearButton="never" placeholder="Tutor First Name:"></ion-searchbar> 
+  <ion-searchbar #search debounce="500" (ionChange)="_ionChange($event)" (ionCancel)="_alert()" 
+  showCancelButton="always" cancelButtonText="Cancel" showClearButton="never" placeholder="Search Chatters:"></ion-searchbar> 
   <ion-list *ngIf="showSearch">
     <ion-item  *ngFor="let user of usersFiltered; let i = index">
       <ion-label>

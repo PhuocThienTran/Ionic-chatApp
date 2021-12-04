@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage-angular';
 
 import { AddPeoplePageModule } from './add-people/add-people.module'; 
+import { CreateConversationPageModule } from './create-conversation/create-conversation.module';
 
 
 
@@ -17,7 +18,8 @@ import { AddPeoplePageModule } from './add-people/add-people.module';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot(), AddPeoplePageModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot(), AddPeoplePageModule,
+  CreateConversationPageModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

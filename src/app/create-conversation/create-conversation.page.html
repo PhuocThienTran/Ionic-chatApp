@@ -19,12 +19,28 @@
       </ion-label>
     </ion-item>
 
+    <br>
+    
+    <ion-item>
+      <ion-label position="floating">Full Name: </ion-label>
+      <ion-input type="text" [(ngModel)]="name" clearInput></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label position="floating">Email: </ion-label>
+      <ion-input type="text" [(ngModel)]="contact" clearInput></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label>Message:</ion-label>
+      <ion-textarea clearOnEdit="true" [(ngModel)]="message" name="message"></ion-textarea>
+    </ion-item>
+
   </ion-list>
 
 </ion-content>
-
 <footer>
   <ion-button expand="full" color="success" shape="square" (click) ="sendMessage()">        
-    Construct Message
+    Send Message
   </ion-button>
 </footer>

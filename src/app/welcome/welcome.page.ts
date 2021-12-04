@@ -22,13 +22,13 @@ export class WelcomePage implements OnInit {
     this.users = JSON.parse( await this.chatAppService.retrieveUsers());
 
     this.conversations = JSON.parse(await this.chatAppService.retrieveConversations());
+
     this.latestMessage = this.conversations[this.conversations.length - 1]
 
     for(let key in this.latestMessage){
       this.latestValues.push(this.latestMessage[key])
       this.latestKeys.push(key)
     }
-    console.log(this.latestValues)
 
   }
 

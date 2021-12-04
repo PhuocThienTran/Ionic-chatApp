@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatAppService } from '../services/chat-app.service';
-import { Storage } from '@ionic/storage-angular';
-import {Router} from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { CreateConversationPage } from '../create-conversation/create-conversation.page';
 
 @Component({
   selector: 'app-conversation',
@@ -11,19 +11,47 @@ import {Router} from '@angular/router';
 export class ConversationPage implements OnInit {
   name: string;
   contact: string;
+  message: string;
 
   users = []
   conversations = []
 
-  constructor(private router:Router, private chatAppService: ChatAppService, private storage: Storage) { }
+  constructor(private chatAppService: ChatAppService, private modalController: ModalController) { }
 
   async ngOnInit() {
     this.conversations = JSON.parse(await this.chatAppService.retrieveConversations());
-    console.log(this.conversations[2])
+    console.log(this.conversations)
   }
 
-  messageNavigate(){
-    this.router.navigate(['conversation']);
+  async sendMessage(){
+    const modal = await this.modalController.create({
+      component: CreateConversationPage,
+      componentProps: {title: 'Add' }
+    });
+   
+    modal.onDidDismiss()
+      .then((retval) => {
+        if (retval.data.name !== undefined){
+          this.converse(retval.data); // MARK: Push new tutor into current list
+        }
+   });
+     return modal.present();
+    
+  }
+  // MARK: Update storage after adding new tutor
+  converse(val) {
+    this.conversations.push(val);
+    this.chatAppService.createConversations(this.conversations)
+  }   
+
+  // MARK: After leaving favourited-tutors, save any changes onto storage
+  ionViewDidLeave(){
+    this.chatAppService.createConversations(this.conversations);
   }
 
+  // MARK: When enter favourited-tutors, load new stored tutors 
+  async ionViewDidEnter(){
+    this.conversations = JSON.parse (await this.chatAppService.retrieveConversations());
+    
+  }
 }

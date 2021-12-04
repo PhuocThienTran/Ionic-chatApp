@@ -20,11 +20,18 @@ export class ChatAppService {
   ]
   
   conversations = [
-    {user: this.users[0], message: "Hello"},
-    {user: this.users[1], message: "Whats up?"},
-    {user: this.users[0], message: "Not much"},
-    {user: this.users[2], message: "Programming is hard"}
+    {name: "Ishini", contact: "ishini@a.com", message: "Hello"},
+    {name: "Finn", contact: "finn@a.com",message: "Whats up?"},
+    {name: "Ishini", contact: "ishini@a.com", message: "Not much"},
+    {name: "Paul", contact: "paul@a.com", message: "Programming is hard"}
   ]
+
+  // conversations = [
+  //   {user: this.users[0], message: "Hello"},
+  //   {user: this.users[1], message: "Whats up?"},
+  //   {user: this.users[0], message: "Not much"},
+  //   {user: this.users[2], message: "Programming is hard"}
+  // ]
   
 
   constructor(private storage: Storage){
