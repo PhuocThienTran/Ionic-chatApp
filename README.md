@@ -10,6 +10,19 @@ This is a personal fullstack Ionic, Angular, TypeScript, node.js, Ionic Storage 
 are able to freely communicate in a "virtual" room via their name + email, with the mimicking ability of sending invites to user via their email. Due to the nature,
 chatApp wouldn't be authenticated and therefore wouldn't be 100% from spams/bots. Currently, chatApp is only able to be installed and run locally. There are no plans to commercially deploy the project. Also, I'm currently swamped with so many projects, this project might be kept this way for now. However, should it get improved, the first thing would be to have 1-1 chat options between users and user authentication.
 
+## Want to run this project locally? 
+- [ ] [Download the latest node.js](https://nodejs.org/en/download/).
+- [ ] Set up your Ionic app's folder structure on your computer.
+- [ ] Install the Ionic cli on your computer's terminal: ``` npm install -g @ionic/cli ```.
+       Note: -g: you're installing Ionic globally on your computer, instead of only at a local folder level.
+- [ ] Create a brand new template for your Ionic app at the VSCode integrated terminal: ``` ionic start appName blank ```.
+       Note: appName: name of your app - can be customisable. blank: [check Ionic documentation for app templates](https://ionicframework.com/docs/v3/cli/starters.html).
+- [ ] Run your app via VSCode integrated terminal: ``` ionic serve -l```.
+       Note: If this is your first time running this app, then press ``` y ``` to install ionic-lab.
+- [ ] Open the ``` info.txt ``` file in this directory's respective folder. This ``` .txt ``` file will detail what the respective folder/project will be about.
+
+---------------------------
+
 ## Looking for the Ionic Framework v6 beta?
 
 [Click here to get started!](https://github.com/ionic-team/ionic-framework/blob/next/BETA.md)
@@ -67,6 +80,8 @@ Docs
 Contact GitHub
 Pricing
 
-## Got any inquries on this project? [Drop me an Email](mailto:donnyquickinc@gmail.com)
+---------------------------
 
-#### ☕️ <a href="https://www.paypal.me/thientran2702">Buy me a coffee? </a>
+### Got any inquries on this project? [Drop me an Email](mailto:donnyquickinc@gmail.com)
+
+### ☕️ <a href="https://www.paypal.me/thientran2702">Buy me a coffee? </a>
