@@ -25,6 +25,7 @@ export class FriendsPage implements OnInit {
     this.usersFiltered = this.users
   }
 
+  // Calls the AddPeople modal to create a new user
   async signUpNavigate(){
     const modal = await this.modalController.create({
       component: AddPeoplePage,
@@ -34,28 +35,28 @@ export class FriendsPage implements OnInit {
     modal.onDidDismiss()
       .then((retval) => {
         if (retval.data.name !== undefined){
-          this.userSignUp(retval.data); // MARK: Push new tutor into current list
+          this.userSignUp(retval.data); // Push data into userSignUp()
         }
    });
      return modal.present();
     
   }
-  // MARK: Update storage after adding new tutor
+  // Update storage after creating a new user
   userSignUp(val) {
     this.users.push(val);
     this.chatAppService.createUsers(this.users)
   }   
 
-  // MARK: After leaving favourited-tutors, save any changes onto storage
+  // After leaving friends, save any changes to the storage
   ionViewDidLeave(){
     this.chatAppService.createUsers(this.users);
   }
 
-   // MARK: Search through list of tutors from storage
+   // _ionChange() allows existing users to be searched via search bar
    _ionChange(event) {
     const val = event.target.value;
     if (val.length > 0){
-      this.usersFiltered = this.users.filter((item: any) => { // MARK: Filter for tutor's firstname
+      this.usersFiltered = this.users.filter((item: any) => { // Filter through the users names
         return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
         this.showSearch = false;
       })
@@ -63,13 +64,13 @@ export class FriendsPage implements OnInit {
       this.showSearch = true;
     }
   }
-  // MARK: When click cancel button on searchbar, tutor list will restore back to deafult 
+  // Click cancel button on searchbar, users list will restore back to deafult 
   _alert() {
     this.usersFiltered = this.users
   }
   
 
-  // MARK: When enter favourited-tutors, load new stored tutors 
+  // Enter friends, load new stored users 
   async ionViewDidEnter(){
     this.users = JSON.parse (await this.chatAppService.retrieveUsers());
     

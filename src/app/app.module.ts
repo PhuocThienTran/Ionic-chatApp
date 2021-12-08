@@ -12,7 +12,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { AddPeoplePageModule } from './add-people/add-people.module'; 
 import { CreateConversationPageModule } from './create-conversation/create-conversation.module';
 
-
+// Import all relevant modules and modal pages for the project
 
 
 @NgModule({

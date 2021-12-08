@@ -23,6 +23,7 @@ export class ConversationPage implements OnInit {
     console.log(this.conversations)
   }
 
+  // Calls the CreateConversation modal to create a new conversation
   async sendMessage(){
     const modal = await this.modalController.create({
       component: CreateConversationPage,
@@ -32,24 +33,24 @@ export class ConversationPage implements OnInit {
     modal.onDidDismiss()
       .then((retval) => {
         if (retval.data.name !== undefined){
-          this.converse(retval.data); // MARK: Push new tutor into current list
+          this.converse(retval.data); // Push data into converse()
         }
    });
      return modal.present();
     
   }
-  // MARK: Update storage after adding new tutor
+  // Update storage after creating a new conversation
   converse(val) {
     this.conversations.push(val);
     this.chatAppService.createConversations(this.conversations)
   }   
 
-  // MARK: After leaving favourited-tutors, save any changes onto storage
+  // After leaving conversations, save any changes onto storage
   ionViewDidLeave(){
     this.chatAppService.createConversations(this.conversations);
   }
 
-  // MARK: When enter favourited-tutors, load new stored tutors 
+  // Enter conversations, load new stored conversations 
   async ionViewDidEnter(){
     this.conversations = JSON.parse (await this.chatAppService.retrieveConversations());
     

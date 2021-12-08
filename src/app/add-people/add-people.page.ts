@@ -1,6 +1,7 @@
+// MARK: a special page: add-people is a modal
+
 import { Component, OnInit } from '@angular/core';
 import { NavParams, ModalController, AlertController } from '@ionic/angular';
-
 
 @Component({
   selector: 'app-add-people',
@@ -14,13 +15,13 @@ export class AddPeoplePage implements OnInit {
   constructor(private navParams: NavParams, private modalController: ModalController, private alertController: AlertController) { }
 
   ngOnInit() {
+    // Pass name and contact from add-people to friends via navParams
     this.name = this.navParams.get("name");
     this.contact = this.navParams.get("contact");
   }
 
-  closemodal(){
-    this.modalController.dismiss({name:this.name,contact:this.contact});
-  }
+  // presentAlert creates an alert when creating a new user, alerts the associated message with the attached button, then
+  // dismiss the modal with saving name and contact
 
   presentAlert():Promise<boolean> {
     return new Promise(() => {

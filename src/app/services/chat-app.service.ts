@@ -5,11 +5,15 @@ import { Storage } from '@ionic/storage-angular';
   providedIn: 'root'
 })
 export class ChatAppService {
+
+  // The project's service page
+
   name: string;
   contact: string;
   message: string;
   user: any;
 
+  // Initial users db
   users = [
     {name: 'Ishini', contact: 'ishini@a.com'},
     {name: 'Finn', contact: 'finn@a.com'},
@@ -19,12 +23,15 @@ export class ChatAppService {
     {name: 'Danny', contact: 'danny@a.com'},
   ]
   
+  // Initial conversations db
   conversations = [
     {name: "Ishini", contact: "ishini@a.com", message: "Hello"},
     {name: "Finn", contact: "finn@a.com",message: "Whats up?"},
     {name: "Ishini", contact: "ishini@a.com", message: "Not much"},
     {name: "Paul", contact: "paul@a.com", message: "Programming is hard"}
   ]
+
+  // Potential conversation db that combines uers and conversations dbs
 
   // conversations = [
   //   {user: this.users[0], message: "Hello"},
@@ -39,6 +46,7 @@ export class ChatAppService {
    }
 
    async init(){
+    // init storage, stringify the current instance of users and conversations to send data -> storage
     const storage = await this.storage.create()
 
     if ( await this.storage.get('users') == undefined ){
@@ -51,19 +59,22 @@ export class ChatAppService {
    }
   
 
-  // MARK: Set a new tutor
+  // Create a new user function via stringify inputted users -> storage
   createUsers(users){
     this.storage.set('users', JSON.stringify(users))
   }
 
+  // Retrieve newly made/existing users
   async retrieveUsers(){
     return this.storage.get('users')
   }
 
+  // Create a new conversation function via stringify inputted conversations -> stroage
   createConversations(conversations){
     this.storage.set('conversations', JSON.stringify(conversations))
   }
 
+  // Retrieve newly made/existing conversations
   async retrieveConversations(){
     return this.storage.get('conversations')
   }
